@@ -7,6 +7,8 @@
 - [Key Innovation](#🔬-key-innovation)
 - [Performance Highlights](#📊-performance-highlights)
 - [Architecture](#🏗️-architecture)
+- [Methodology & Technical Details](#⚙️-methodology--technical-details)
+- [Project Structure](#📂-project-structure)
 - [Tech Stack](#🧱-tech-stack)
 - [Quick Start](#💻-quick-start)
 
@@ -40,7 +42,37 @@ A medical image classifier deploying Wavelet Scattering Transforms (WST) for tra
 ---
 
 ## 🏗️ Architecture
-```\n[Core Architectural Components & Datastore Framework]\n```
+```mermaid
+graph TD
+    Image[TissueMNIST Image] -->|WST 2nd-order| Features[Wavelet features]
+    Features -->|PCA reduction| Eigen[Eigenvectors projections]
+    Eigen -->|Analytical Matrix Solver| Output[Pseudoinverse weight mapping]
+    Output -->|Prediction| Label[Tissue class]
+```
+
+---
+
+## ⚙️ Methodology & Technical Details
+### Wavelet Scattering Transform (WST)
+To extract structural texture parameters from TissueMNIST cellular images, we deploy a 2nd-order Wavelet Scattering network. The scattering transform propagates images through a cascade of wavelet convolutions and modulus operations, followed by spatial pooling. WST yields representation features that are mathematically invariant to translation and stable under deformation:
+$$S_J f = \{ U[p] f \star \phi_J \}_p$$
+where \(\phi_J\) is a low-pass scaling filter and \(U[p]\) is the path modulus operator.
+
+### Backpropagation-free Analytical Classifier
+Using the extracted feature matrix \(\mathbf{X} \in \mathbb{R}^{d 	imes N}\) and target labels \(\mathbf{Y} \in \mathbb{R}^{c 	imes N}\), we calculate classification weights analytically without gradient descent steps:
+$$\mathbf{W} = \mathbf{Y} \mathbf{X}^T (\mathbf{X} \mathbf{X}^T)^{-1}$$
+This is the closed-form Moore-Penrose pseudoinverse solution, completed in **1.4 seconds** on CPU, yielding a **15x training acceleration** compared to backpropagation pipelines.
+
+---
+
+## 📂 Project Structure
+```
+wavelet_scattering/
+├── wavelet_scattering_tissuemnist.ipynb  # Primary notebook containing classification
+├── wst_pca_kernel_pipeline.ipynb          # PCA dimensionality evaluation script
+├── .gitignore                             # Python configurations
+└── README.md                              # This document
+```
 
 ---
 
