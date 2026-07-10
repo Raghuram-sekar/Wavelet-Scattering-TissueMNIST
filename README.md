@@ -2,15 +2,15 @@
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-%23F37626.svg?style=for-the-badge&logo=Jupyter&logoColor=white) ![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=SciPy&logoColor=white) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## 📋 Table of Contents
-- [Project Overview](#🎯-project-overview)
-- [What This Project Does](#🚀-what-this-project-does)
-- [Key Innovation](#🔬-key-innovation)
-- [Performance Highlights](#📊-performance-highlights)
-- [Architecture](#🏗️-architecture)
-- [Methodology & Technical Details](#⚙️-methodology--technical-details)
-- [Project Structure](#📂-project-structure)
-- [Tech Stack](#🧱-tech-stack)
-- [Quick Start](#💻-quick-start)
+- [Project Overview](#-project-overview)
+- [What This Project Does](#-what-this-project-does)
+- [Key Innovation](#-key-innovation)
+- [Performance Highlights](#-performance-highlights)
+- [Architecture](#-architecture)
+- [Methodology & Technical Details](#-methodology--technical-details)
+- [Project Structure](#-project-structure)
+- [Tech Stack](#-tech-stack)
+- [Quick Start](#-quick-start)
 
 ---
 
